@@ -17,24 +17,18 @@ import CardIcon from '../assets/svg/CardIcon';
 import NotificationIcon from '../assets/svg/NotificationIcon';
 // react navigation
 import { useNavigation, useIsFocused } from '@react-navigation/native';
+// app context
+import { useGlobals } from "../context/AppContext";
 
 const BottomNavigation = () => {
 
     const navigation = useNavigation();
-    const isFocused = useIsFocused();
-    const [currentStack, setCurrentStack] = useState("");
 
-    // function to listen for change in navigation, and update currentStack
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('state', () => {
-            // update currentStack
-            setCurrentStack(navigation.getCurrentRoute().name);
-        });
-        return unsubscribe;
-    }, [isFocused, navigation]);
+    // get current stact
+    const { currentStack } = useGlobals();
 
     // stacks to show navigation
-    const visibleStacks = ["Home", "Graph", "Scan", "Card", "Notifications"];
+    const visibleStacks = ["Home", "Graph", "Card", "Notifications"];
 
     return visibleStacks.includes(currentStack) ? (
         <View style={styles.container}>

@@ -11,18 +11,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // app required components
-import { SafeAreaView, AppRegistry, StatusBar } from 'react-native';
+import { SafeAreaView, AppRegistry } from 'react-native';
 // stacks
 import Home from './stacks/Home';
 import Graph from './stacks/Graph';
 import Scan from './stacks/Scan';
 import Card from './stacks/Card';
 import Notifications from './stacks/Notifications';
+import Menu from './stacks/Menu';
+import TopUp from './stacks/TopUp';
 // colors
 import { colors } from './style/colors';
 // components
 import BottomNavigation from './components/BottomNavigation';
-
+import Taskbar from './components/Taskbar';
+// conetxt
+import AppProvider from './context/AppContext';
 
 export default function App() {
 
@@ -48,32 +52,35 @@ export default function App() {
 		return null;
 	}
 
-
 	const Stack = createNativeStackNavigator();
 
 	return (
 		<SafeAreaView style={{flex: 1}}>
 			<NavigationContainer>
-				{/* GestureHandlerRootView required to render bottomsheet */}
-				<GestureHandlerRootView style={{ flex: 1 }}>
-					{/* BottomSheetModalProvider required to render bottomsheet */}
-					<BottomSheetModalProvider>
-						<StatusBar style="dark" backgroundColor={colors.primary}/>
-						<Stack.Navigator
-							initialRouteName='Home'
-							screenOptions={{
-								headerShown: false
-							}}
-						>
-							<Stack.Screen name="Home" component={Home} />
-							<Stack.Screen name="Graph" component={Graph} />
-							<Stack.Screen name="Scan" component={Scan} />
-							<Stack.Screen name="Card" component={Card} />
-							<Stack.Screen name="Notifications" component={Notifications} />
-						</Stack.Navigator>
-						<BottomNavigation />
-					</BottomSheetModalProvider>
-				</GestureHandlerRootView>
+				<AppProvider>
+					{/* GestureHandlerRootView required to render bottomsheet */}
+					<GestureHandlerRootView style={{ flex: 1 }}>
+						{/* BottomSheetModalProvider required to render bottomsheet */}
+						<BottomSheetModalProvider>
+							<Taskbar />
+							<Stack.Navigator
+								initialRouteName='Home'
+								screenOptions={{
+									headerShown: false
+								}}
+							>
+								<Stack.Screen name="Home" component={Home} />
+								<Stack.Screen name="Graph" component={Graph} />
+								<Stack.Screen name="Scan" component={Scan} />
+								<Stack.Screen name="Card" component={Card} />
+								<Stack.Screen name="Notifications" component={Notifications} />
+								<Stack.Screen name="Menu" component={Menu} />
+								<Stack.Screen name="TopUp" component={TopUp} />
+							</Stack.Navigator>
+							<BottomNavigation />
+						</BottomSheetModalProvider>
+					</GestureHandlerRootView>
+				</AppProvider>
 			</NavigationContainer>
 		</SafeAreaView>
 	);

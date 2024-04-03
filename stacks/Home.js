@@ -77,11 +77,11 @@ const Home = ({navigation}) => {
         {
             text: 'Transfer',
             stack: 'Transfer',
-            icon: <TransferIcon />,            
+            icon: <TransferIcon />,         
         },
         {
             text: 'Top-up',
-            stack: 'Top-up',
+            stack: 'TopUp',
             icon: <TopUpIcon />,            
         },
         {

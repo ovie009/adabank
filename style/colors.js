@@ -9,5 +9,6 @@ export const colors = {
     currencyButton: '#FFFFFF4D',
     yellow: '#E9FFAB',
     black:  '#080422',
+    subtext: '#08042280',
     bacground: '#F6F6F6',
 }

@@ -6,7 +6,7 @@ const IconButton = ({onPress, icon}) => {
     return (
         <TouchableOpacity 
             style={styles.iconButton}
-            onPress={onPress}
+            onPress={onPress || (() => {})}
         >
             {icon}
         </TouchableOpacity>
