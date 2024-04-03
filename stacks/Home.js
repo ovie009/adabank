@@ -85,7 +85,7 @@ const Home = ({navigation}) => {
         },
         {
             text: 'Bill',
-            stack: 'Bill',
+            stack: 'Card',
             icon: <BillIcon />,            
         },
         {

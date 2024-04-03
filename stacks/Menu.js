@@ -37,7 +37,7 @@ const Menu = ({navigation}) => {
         {
             title: 'Bill Payment',
             icon: <BillIcon />,
-            onPress: () =>  navigation.navigate('Bill'),
+            onPress: () =>  navigation.navigate('Card'),
             category: 'shortcut',
         },
         {
@@ -49,13 +49,13 @@ const Menu = ({navigation}) => {
         {
             title: 'History Transactions',
             icon: <HistoryIcon />,
-            onPress: () =>  navigation.navigate('History'),
+            onPress: () =>  navigation.navigate('Home'),
             category: 'others',
         },
         {
             title: 'Request Payment',
             icon: <UserIcon />,
-            onPress: () =>  navigation.navigate('RequestPayment'),
+            onPress: () =>  navigation.navigate('Home'),
             category: 'others',
         },
     ]

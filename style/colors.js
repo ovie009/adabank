@@ -1,5 +1,8 @@
 export const colors = {
     primary: '#106048',
+    primaryAlt: '#09703E',
+    primaryAltLight: '#09703E8A',
+    primaryDisabled: '#09703E33',
     white: '#FFFFFF',
     gradientStart: '#FAFAFA99',
     gradientEnd: '#FAFAFA1A',
@@ -12,6 +15,11 @@ export const colors = {
     blackOut: '#000000',
     subtext: '#08042280',
     background: '#F6F6F6',
-    lisetSeperator: '#0000001A',
+    listSeperator: '#0000001A',
     progressBar: '#0804220D',
+    cardBackground: '#CCEF69',
+    circleGradientStart: '#FFFFFF00',
+    circleGradientEnd: '#FFFFFF33',
+    spent: '#FF7272',
+
 }

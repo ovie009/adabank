@@ -52,7 +52,15 @@ const TransactionHistory = ({transactionType, amount, description, date}) => {
             </View>
 
             <View style={styles.descriptionWrapper}>
-                <Text style={styles.transactionType}>
+                <Text 
+                    style={[
+                        styles.transactionType,
+                        description === undefined && {
+                            fontSize: 14,
+                            lineHeight: 21,
+                        }
+                    ]}
+                >
                     ${amount}
                 </Text>
                 <Text style={styles.transactionDate}>

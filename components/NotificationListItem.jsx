@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 		height: 85,
 		gap: 20,
 		borderBottomWidth: 0.5,
-		borderColor: colors.lisetSeperator,
+		borderColor: colors.listSeperator,
 	},
 	transactionContent: {
 		width: windowWidth - 132,

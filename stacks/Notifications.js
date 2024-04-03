@@ -64,33 +64,36 @@ const Notifications = ({navigation}) => {
 				<Text style={styles.headerText}>Notifications</Text>
 			</View>
 			<View style={styles.main}>
-				<Shadow 
-					style={styles.shadow}
-					distance={50}
-					offset={[0, 8]}
-					startColor='#07051A12'
-					// endColor='tranparent'
-				>
-					<View style={styles.transactionHistoryWrapper}>
-						<Text style={styles.transactionHistoryHeading}>
-							Transaction
-						</Text>
-						<View style={styles.transactionsWrapper}>
-							{transactions.map((transaction, index) => (
-								<NotificationListItem
-									key={transaction.id}
-									index={index}
-									onPress={() => navigation.navigate("Receipt")}
-									onPressClose={() => handleRemoveTransaction(transaction.id)}
-									mainText={transaction.description}
-									subText={transaction.date}
-									icon={<ReceiptIcon />}
-								/>
-							))}
-							
+				{transactions.length > 0 && (
+					<Shadow 
+						style={styles.shadow}
+						distance={50}
+						offset={[0, 8]}
+						startColor='#07051A12'
+						// endColor='tranparent'
+					>
+						<View style={styles.transactionHistoryWrapper}>
+							<Text style={styles.transactionHistoryHeading}>
+								Transaction
+							</Text>
+							<View style={styles.transactionsWrapper}>
+								{transactions.map((transaction, index) => (
+									<NotificationListItem
+										key={transaction.id}
+										index={index}
+										// onPress={() => navigation.navigate("Receipt")}
+										onPress={() => {}}
+										onPressClose={() => handleRemoveTransaction(transaction.id)}
+										mainText={transaction.description}
+										subText={transaction.date}
+										icon={<ReceiptIcon />}
+									/>
+								))}
+								
+							</View>
 						</View>
-					</View>
-				</Shadow>
+					</Shadow>
+				)}
 				<Shadow 
 					style={styles.shadow}
 					distance={50}
@@ -115,7 +118,8 @@ const Notifications = ({navigation}) => {
 								<NotificationListItem
 									key={transaction.id}
 									index={index}
-									onPress={() => navigation.navigate("Profile")}
+									// onPress={() => navigation.navigate("Profile")}
+									onPress={() => {}}
 									mainText={transaction.description}
 									subText={transaction.subText}
 									icon={transaction.icon}
@@ -212,7 +216,7 @@ const styles = StyleSheet.create({
 		width: '60%',
 		height: 10,
 		borderRadius: 100,
-		backgroundColor: colors.primary
+		backgroundColor: colors.primaryAlt
 	},
 	transactionsWrapper: {
 		width: '100%',
@@ -232,7 +236,7 @@ const styles = StyleSheet.create({
 		height: 85,
 		gap: 20,
 		borderBottomWidth: 0.5,
-		borderColor: colors.lisetSeperator,
+		borderColor: colors.listSeperator,
 	},
 	transactionContent: {
 		display: 'flex',
