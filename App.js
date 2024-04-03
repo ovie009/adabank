@@ -20,6 +20,7 @@ import Card from './stacks/Card';
 import Notifications from './stacks/Notifications';
 import Menu from './stacks/Menu';
 import TopUp from './stacks/TopUp';
+import Transfer from './stacks/Transfer';
 // colors
 import { colors } from './style/colors';
 // components
@@ -76,6 +77,7 @@ export default function App() {
 								<Stack.Screen name="Notifications" component={Notifications} />
 								<Stack.Screen name="Menu" component={Menu} />
 								<Stack.Screen name="TopUp" component={TopUp} />
+								<Stack.Screen name="Transfer" component={Transfer} />
 							</Stack.Navigator>
 							<BottomNavigation />
 						</BottomSheetModalProvider>

@@ -222,7 +222,7 @@ const Home = ({navigation}) => {
                 // onChange={handleSheetChanges}
                 handleComponent={ModalHandle}
                 snapPoints={[windowHeight - 430, windowHeight - 118]}
-                backgroundStyle={{borderRadius: 30, backgroundColor: colors.bacground}}
+                backgroundStyle={{borderRadius: 30, backgroundColor: colors.background}}
             >
                 <BottomSheetScrollView 
                     // showsVerticalScrollIndicator={false}

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         width: '100%',
         minHeight: '100%',
         height: '100%',
-        backgroundColor: colors.bacground,
+        backgroundColor: colors.background,
         padding: 24,
     }
 })

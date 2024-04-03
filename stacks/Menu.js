@@ -17,6 +17,7 @@ import { Shadow } from 'react-native-shadow-2';
 
 const Menu = ({navigation}) => {
 
+    // search query
     const [searchQuery, setSearchQuery] = useState('');
 
     // all menus
@@ -107,7 +108,6 @@ const Menu = ({navigation}) => {
                 distance={30}
                 offset={[0, 10]}
                 startColor='#05041514'
-                // endColor='tranparent'
             >
                 <View style={styles.searchBar}>
                     <SearchIcon />

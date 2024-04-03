@@ -26,7 +26,7 @@ const Taskbar = () => {
     return (
         <StatusBar 
             style="dark" 
-            backgroundColor={primaryStacks.includes(currentStack) ? colors.primary : colors.bacground}
+            backgroundColor={primaryStacks.includes(currentStack) ? colors.primary : colors.background}
         />
     )
 }
