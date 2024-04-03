@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/adabank_icon.png",
         "backgroundColor": "#106048"
-      }
+      },
+      "package": "com.komitexstock.adabank"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "63af49e4-32f1-4cbc-84ed-a575b41a4e52"
+      }
     }
   }
 }
