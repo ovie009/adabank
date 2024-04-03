@@ -24,8 +24,7 @@ import HideBalanceIcon from '../assets/svg/HideBalanceIcon';
 import BottomSheet, { BottomSheetView, BottomSheetScrollView } from '@gorhom/bottom-sheet';
 // scroll view from gesture handler
 import { ScrollView } from "react-native-gesture-handler";
-// shadow component
-import { Shadow } from 'react-native-shadow-2';
+
 
 const Home = ({navigation}) => {
 

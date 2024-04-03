@@ -9,6 +9,9 @@ export const colors = {
     currencyButton: '#FFFFFF4D',
     yellow: '#E9FFAB',
     black:  '#080422',
+    blackOut: '#000000',
     subtext: '#08042280',
     bacground: '#F6F6F6',
+    lisetSeperator: '#0000001A',
+    progressBar: '#0804220D',
 }
