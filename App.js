@@ -1,20 +1,82 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler'; //required import for bottomsheet to function
+// react hooks
+import { useCallback } from 'react';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// import { StatusBar } from 'expo-status-bar';
+// bottom sheet components
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+// app required components
+import { SafeAreaView, AppRegistry, StatusBar } from 'react-native';
+// stacks
+import Home from './stacks/Home';
+import Graph from './stacks/Graph';
+import Scan from './stacks/Scan';
+import Card from './stacks/Card';
+import Notifications from './stacks/Notifications';
+// colors
+import { colors } from './style/colors';
+// components
+import BottomNavigation from './components/BottomNavigation';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+	// declare fonts 
+	const [fontsLoaded] = useFonts({
+		'poppins-regular': require('./assets/fonts/Poppins-Regular.ttf'),
+		'poppins-medium': require('./assets/fonts/Poppins-Medium.ttf'),
+		'poppins-semibold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+		'poppins-bold': require('./assets/fonts/Poppins-Bold.ttf'),
+	});
+
+	//   function to load font
+	const onLayoutRootView = useCallback(async () => {
+		// wait fpr font and authData to finish loading
+		if (fontsLoaded) {
+			// remove splash screen
+			await SplashScreen.hideAsync();
+		}
+
+	}, [fontsLoaded]);
+
+	if (!fontsLoaded) {
+		return null;
+	}
+
+
+	const Stack = createNativeStackNavigator();
+
+	return (
+		<SafeAreaView style={{flex: 1}}>
+			<NavigationContainer>
+				{/* GestureHandlerRootView required to render bottomsheet */}
+				<GestureHandlerRootView style={{ flex: 1 }}>
+					{/* BottomSheetModalProvider required to render bottomsheet */}
+					<BottomSheetModalProvider>
+						<StatusBar style="dark" backgroundColor={colors.primary}/>
+						<Stack.Navigator
+							initialRouteName='Home'
+							screenOptions={{
+								headerShown: false
+							}}
+						>
+							<Stack.Screen name="Home" component={Home} />
+							<Stack.Screen name="Graph" component={Graph} />
+							<Stack.Screen name="Scan" component={Scan} />
+							<Stack.Screen name="Card" component={Card} />
+							<Stack.Screen name="Notifications" component={Notifications} />
+						</Stack.Navigator>
+						<BottomNavigation />
+					</BottomSheetModalProvider>
+				</GestureHandlerRootView>
+			</NavigationContainer>
+		</SafeAreaView>
+	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent('MyApp', () => App);
