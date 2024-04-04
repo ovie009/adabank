@@ -33,10 +33,10 @@ export default function App() {
 
 	// declare fonts 
 	const [fontsLoaded] = useFonts({
-		'poppins-regular': require('assets/fonts/Poppins-Regular.ttf'),
-		'poppins-medium': require('assets/fonts/Poppins-Medium.ttf'),
-		'poppins-semibold': require('assets/fonts/Poppins-SemiBold.ttf'),
-		'poppins-bold': require('assets/fonts/Poppins-Bold.ttf'),
+		'poppins-regular': require('./assets/fonts/Poppins-Regular.ttf'),
+		'poppins-medium': require('./assets/fonts/Poppins-Medium.ttf'),
+		'poppins-semibold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+		'poppins-bold': require('./assets/fonts/Poppins-Bold.ttf'),
 	});
 
 	//   function to load font
@@ -48,6 +48,17 @@ export default function App() {
 		}
 
 	}, [fontsLoaded]);
+
+	//   function to load font
+	// const onLayoutRootView = async () => {
+	// 	// wait fpr font and authData to finish loading
+	// 	if (fontsLoaded) {
+	// 		// remove splash screen
+	// 		await SplashScreen.hideAsync();
+	// 	}
+	// };
+
+	// onLayoutRootView();
 
 	if (!fontsLoaded) {
 		return null;

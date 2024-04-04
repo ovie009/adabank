@@ -21,7 +21,7 @@ import HideBalanceIcon from '../assets/svg/HideBalanceIcon';
 // import { BlurView } from 'expo-blur';
 // import { BlurView } from "@react-native-community/blur";
 // bottom sheet
-import BottomSheet, { BottomSheetView, BottomSheetScrollView } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 // scroll view from gesture handler
 import { ScrollView } from "react-native-gesture-handler";
 

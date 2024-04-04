@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useState } from 'react';
 import { colors } from '../style/colors';
 import { windowHeight, windowWidth } from '../utils/dimension';

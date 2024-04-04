@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Animated, Easing } from 'react-native'
+import { StyleSheet, View, Animated, Easing, Alert } from 'react-native'
 import React from 'react';
 import { colors } from '../style/colors';
 // component
@@ -16,11 +16,14 @@ import {
 } from 'expo-camera';
 // react hooks
 import { useState, useEffect, useRef } from 'react';
-import { windowHeight, windowWidth } from '../utils/dimension';
+import { windowHeight } from '../utils/dimension';
 // gradient
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Scan = () => {
+const Scan = ({ navigation }) => {
+
+	const [isCameraReady, setCameraReady] = useState(false);
+    const [hasPermission, setHasPermission] = useState(null);
 
 	// translate value
     const translate = useRef(new Animated.Value(0)).current;
@@ -55,7 +58,7 @@ const Scan = () => {
 	// Ensure to clear the animation on component unmount to prevent memory leaks
 	useEffect(() => {
 		return () => {
-		translate.stopAnimation();
+			translate.stopAnimation();
 		};
 	}, []);
 
@@ -67,69 +70,77 @@ const Scan = () => {
     // camera ref
     const cameraRef = useRef();
 
-	// request permission to use phone camera
-    const requestPermission = async () => {
-        try {
-            await requestCameraPermissionsAsync();
-        } catch (error) {
-            // go back to previous screen/stack
-        }
-    }
-
-	// request permission on load
-    useEffect(() => {
+	useEffect(() => {
+        const requestPermission = async () => {
+            const { status } = await requestCameraPermissionsAsync();
+            setHasPermission(status === 'granted');
+            setCameraReady(status === 'granted');
+            if (status !== 'granted') {
+                Alert.alert('Permission Denied', 'Please grant camera permission to use the app.', [
+                    { text: 'OK', onPress: () => navigation.navigate('Home') },
+                ]);
+            }
+        };
         requestPermission();
     }, []);
 
+    // const handleCameraReady = () => {
+    //     setCameraReady(true);
+    // };
+
 	return (
 		<View style={styles.container}>
-			<Camera
-				ref={cameraRef}
-				style={styles.camera}
-				type={type}
-				flashMode={flashMode}
-				ratio={'16:9'}
-				autoFocus={AutoFocus.on}
-				whiteBalance={WhiteBalance.cloudy}
-			>
-				<View style={styles.main}>
-					<View style={styles.top}>
-						<Header
-							title={""}
-							mode={'light'}
-						/>
-					</View>
-					<View style={styles.scanWrapper}>
-						<View style={styles.sideBar} />
-						<View style={styles.scanWindow}>
-							<View style={styles.topLeft} />
-							<View style={styles.topRight} />
-							<View style={styles.bottomLeft} />
-							<View style={styles.bottomRight} />
-							<Animated.View 
-								style={[
-									styles.scanner,
-									{
-										transform: [
+			{hasPermission && (
+				<Camera
+					ref={cameraRef}
+					style={styles.camera}
+					type={type}
+					flashMode={flashMode}
+					ratio={'16:9'}
+					autoFocus={AutoFocus.on}
+					whiteBalance={WhiteBalance.cloudy}
+				>
+					{isCameraReady && (
+						<View style={styles.main}>
+							<View style={styles.top}>
+								<Header
+									title={""}
+									mode={'light'}
+								/>
+							</View>
+							<View style={styles.scanWrapper}>
+								<View style={styles.sideBar} />
+								<View style={styles.scanWindow}>
+									<View style={styles.topLeft} />
+									<View style={styles.topRight} />
+									<View style={styles.bottomLeft} />
+									<View style={styles.bottomRight} />
+									<Animated.View 
+										style={[
+											styles.scanner,
 											{
-												translateY: translate,
+												transform: [
+													{
+														translateY: translate,
+													}
+												]
 											}
-										]
-									}
-								]}
-							>
-								<LinearGradient
-									// Background Linear Gradient
-									colors={['#09703E80', '#09703E00']}
-									style={styles.gradient}
-								></LinearGradient>
-							</Animated.View>
+										]}
+									>
+										<LinearGradient
+											// Background Linear Gradient
+											colors={['#09703E80', '#09703E00']}
+											style={styles.gradient}
+										></LinearGradient>
+									</Animated.View>
+								</View>
+								<View style={styles.sideBar} />
+							</View>
+							<View style={styles.top} />
 						</View>
-						<View style={styles.sideBar} />
-					</View>
-					<View style={styles.top} />
-				</View>
-			</Camera>
+					)}
+				</Camera>
+			)}
 		</View>
 	)
 }

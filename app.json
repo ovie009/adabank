@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "adabank",
-    "slug": "adabank",
+    "name": "Adabank",
+    "slug": "Adabank",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icons/adabank_icon.png",
@@ -25,7 +25,7 @@
       "package": "com.komitexstock.adabank"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icons/adabank_icon.png"
     },
     "extra": {
       "eas": {

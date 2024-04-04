@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react';
+import React from 'react';
 import { colors } from '../style/colors';
 import { windowHeight, windowWidth } from '../utils/dimension';
 // card stripes
 import VerticalRule from '../assets/svg/VerticalRule';
 import ArrowDownLargeIcon from '../assets/svg/ArrowDownLargeIcon';
-// gradient
-import { LinearGradient } from 'expo-linear-gradient';
 // shadow component
 import { Shadow } from 'react-native-shadow-2';
 // components
