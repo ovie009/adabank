@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     headerText: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 14,
         lineHeight: 21,

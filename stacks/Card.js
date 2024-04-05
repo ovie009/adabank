@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 		zIndex: 2,
 	},
 	cardHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 20,
 		lineHeight: 30,
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 	},
 	balanceHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -264,14 +264,14 @@ const styles = StyleSheet.create({
 		opacity: 0.54,
 	},
 	balance: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 24,
 		lineHeight: 42,
 		color: colors.background,
 	},
 	cardNumber: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
 		zIndex: 3,
 	},
 	expireDate: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
 		gap: 8,
 	},
 	navButtonText: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.black
@@ -381,7 +381,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 24,
 	},
 	setttingsHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -415,21 +415,21 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	settingsHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.black,
 	},
 	settingsSubText: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 10,
 		lineHeight: 15,
 		color: colors.black,
 		opacity: 0.5,
 	},
 	limit: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,

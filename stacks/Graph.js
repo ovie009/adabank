@@ -222,13 +222,13 @@ const styles = StyleSheet.create({
 		right: 24,
 	},
 	dateRange: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 14,
 		lineHeight: 21,
 		color: colors.white,
 	},
 	totalAmount: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 36,
 		lineHeight: 54,
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	amountDescription: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.black,
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
 		width: '100%',
 	},
 	amount: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 20,
 		lineHeight: 30,
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
 		width: '100%'
 	},
 	setttingsHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -325,21 +325,21 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	settingsHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.black,
 	},
 	settingsSubText: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 10,
 		lineHeight: 15,
 		color: colors.black,
 		opacity: 0.5,
 	},
 	limit: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,

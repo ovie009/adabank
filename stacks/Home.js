@@ -17,10 +17,6 @@ import BillIcon from '../assets/svg/BillIcon';
 import MenuIcon from '../assets/svg/MenuIcon';
 import ArrowDownIcon from '../assets/svg/ArrowDownIcon';
 import HideBalanceIcon from '../assets/svg/HideBalanceIcon';
-// blur view
-// import { BlurView } from 'expo-blur';
-// import { BlurView } from "@react-native-community/blur";
-// bottom sheet
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 // scroll view from gesture handler
 import { ScrollView } from "react-native-gesture-handler";
@@ -184,15 +180,9 @@ const Home = ({navigation}) => {
                             <View style={styles.balanceContainer}>
                                 <Text style={styles.balanceDescription}>Total Balance</Text>
                                 <View style={styles.balanceTextWrapper}>
-                                    {/* <BlurView
-                                        style={styles.blurView}
-                                        intensity={5} // Adjust the blur intensity
-                                        blurReductionFactor={5}
-                                    > */}
-                                        <Text style={styles.balanceText}>
-                                            $450.37
-                                        </Text>
-                                    {/* </BlurView> */}
+                                    <Text style={styles.balanceText}>
+                                        $450.37
+                                    </Text>
                                 </View>
                                 <TouchableOpacity style={styles.currencyButton}>
                                     <Text style={styles.currencyButtonText}>USD</Text>
@@ -298,12 +288,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',  
     },
     headerLightText: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 14,
         color: colors.white,
     },
     headerBoldText: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 24,
         color: colors.white,
@@ -384,7 +374,7 @@ const styles = StyleSheet.create({
         height: 116,
     },
     balanceDescription: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.white,
         lineHeight: 18,
@@ -403,7 +393,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     balanceText: {
-        // fontFamily: 'poppins-semibold',
+        fontFamily: 'poppins-semibold',
         fontWeight: '600',
         fontSize: 44,
         lineHeight: 66,
@@ -422,7 +412,7 @@ const styles = StyleSheet.create({
     },
     currencyButtonText: {
         color: colors.white,
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 10,
     },
@@ -449,7 +439,7 @@ const styles = StyleSheet.create({
 
 
     quickButtonDescription: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.white,
         lineHeight: 18,
@@ -476,7 +466,7 @@ const styles = StyleSheet.create({
         paddingRight: 24,
     },
     beneficiariesHeader: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 14,
         color: colors.black,
@@ -504,7 +494,7 @@ const styles = StyleSheet.create({
         width: 56,
     },
     beneficiaryName: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.black,
         lineHeight: 18,
@@ -558,14 +548,14 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     transactionType: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 12,
         lineHeight: 18,
         color: colors.black,
     },
     transactionDate: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 10,
         lineHeight: 15,
         color: colors.black,

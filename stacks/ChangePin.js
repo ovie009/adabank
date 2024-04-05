@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native'
 import React, { useState } from 'react';
 import { colors } from '../style/colors';
 import { windowHeight, windowWidth } from '../utils/dimension';
@@ -38,113 +38,118 @@ const ChangePin = () => {
 	}
 
     return (
-		<ScrollView
-			showsVerticalScrollIndicator={false}
-			style={styles.container}
-			contentContainerStyle={styles.contentContainer}
-		>
-			<LinearGradient
-				// Background Linear Gradient
-				colors={[colors.circleGradientStart, colors.circleGradientEnd]}
-				style={styles.circularDesign}
-			/>
-			{/* <View style={styles.circularDesign} /> */}
-			<View style={styles.cardWrapper}>
-				<Text style={styles.cardHeading}>Chnage PIN</Text>
-				<View style={styles.cardContainer}>
-					<Shadow 
-						style={styles.cardShadow}
-						distance={40}
-						offset={[0, 24]}
-						startColor='#0408151A'
-					>
-						<View style={styles.card}>
-							<View style={styles.rightContainer}>
-								<View style={styles.balanceWrapper}>
-									<Text style={styles.balanceHeading}>Current Balance</Text>
-									<Text style={styles.balance}>$174.52</Text>
-								</View>
-								<Text style={styles.cardNumber}>
-									5282 3456 7890 1289
-								</Text>
-								<View style={styles.cardEllipseBottom}>
-									<BottomEllipse />
-								</View>
-								<View style={styles.cardEllipseTop}>
-									<TopEllipse />
-								</View>
-							</View>
-							<View style={styles.leftContainer}>
-								<View style={styles.cardStripes}>
-									<CardStripes />
-								</View>
-								<View style={styles.expireDateContainer}>
-									<MasterCardLogo />
-									<Text style={styles.expireDate}>
-										09/25
+		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+			<ScrollView
+				showsVerticalScrollIndicator={false}
+				style={styles.container}
+				contentContainerStyle={styles.contentContainer}
+			>
+				<LinearGradient
+					// Background Linear Gradient
+					colors={[colors.circleGradientStart, colors.circleGradientEnd]}
+					style={styles.circularDesign}
+				/>
+				{/* <View style={styles.circularDesign} /> */}
+				<View style={styles.cardWrapper}>
+					<Text style={styles.cardHeading}>Chnage PIN</Text>
+					<View style={styles.cardContainer}>
+						<Shadow 
+							style={styles.cardShadow}
+							distance={40}
+							offset={[0, 24]}
+							startColor='#0408151A'
+						>
+							<View style={styles.card}>
+								<View style={styles.rightContainer}>
+									<View style={styles.balanceWrapper}>
+										<Text style={styles.balanceHeading}>Current Balance</Text>
+										<Text style={styles.balance}>$174.52</Text>
+									</View>
+									<Text style={styles.cardNumber}>
+										5282 3456 7890 1289
 									</Text>
+									<View style={styles.cardEllipseBottom}>
+										<BottomEllipse />
+									</View>
+									<View style={styles.cardEllipseTop}>
+										<TopEllipse />
+									</View>
+								</View>
+								<View style={styles.leftContainer}>
+									<View style={styles.cardStripes}>
+										<CardStripes />
+									</View>
+									<View style={styles.expireDateContainer}>
+										<MasterCardLogo />
+										<Text style={styles.expireDate}>
+											09/25
+										</Text>
+									</View>
 								</View>
 							</View>
-						</View>
-					</Shadow>
-				</View>
-			</View>
-			<View style={styles.main}>
-				<View style={styles.InputGroup}>
-					<View style={styles.inputWrapper}>
-						<View style={styles.inputContent}>
-							<TextInput
-								placeholder='New PIN'
-								placeholderTextColor={colors.subtext}
-								style={styles.input}
-								onChangeText={setPin}
-								textAlignVertical='bottom'
-								keyboardType='numeric'
-								maxLength={4}
-								secureTextEntry={pinHidden}
-							/>
-							<TouchableOpacity
-								style={styles.viewPinButton}
-								onPress={() => setPinHidden(prevValue => !prevValue)}
-							>
-								{!pinHidden ? <EyeSlashIcon /> : <EyeIcon />}
-							</TouchableOpacity>
-						</View>
-						<Text style={styles.helperText}>
-							Enter 6 numbers as new PIN to retain your card
-						</Text>
-					</View>
-					<View style={styles.inputWrapper}>
-						<View style={styles.inputContent}>
-							<TextInput
-								placeholder='Confirmation New PIN'
-								placeholderTextColor={colors.subtext}
-								style={styles.input}
-								onChangeText={setConfirmPin}
-								textAlignVertical='bottom'
-								keyboardType='numeric'
-								maxLength={4}
-								secureTextEntry={confirmPinHidden}
-							/>
-							<TouchableOpacity
-								style={styles.viewPinButton}
-								onPress={() => setConfirmPinHidden(prevValue => !prevValue)}
-							>
-								{!confirmPinHidden ? <EyeSlashIcon /> : <EyeIcon />}
-							</TouchableOpacity>
-						</View>
+						</Shadow>
 					</View>
 				</View>
-                <View style={styles.customButtonWrapper}>
-                    <TouchableOpacity
-                        style={styles.customButton}
-                        onPress={() => {}}
-                    >
-                        <Text style={styles.customButtonText}>Save</Text>
-                    </TouchableOpacity>
-                </View>
-			</View>
-		</ScrollView>
+				<View style={styles.main}>
+					<View style={styles.InputGroup}>
+						<View style={styles.inputWrapper}>
+							<View style={styles.inputContent}>
+								<TextInput
+									placeholder='New PIN'
+									placeholderTextColor={colors.subtext}
+									style={styles.input}
+									onChangeText={setPin}
+									textAlignVertical='bottom'
+									keyboardType='numeric'
+									maxLength={4}
+									secureTextEntry={pinHidden}
+								/>
+								<TouchableOpacity
+									style={styles.viewPinButton}
+									onPress={() => setPinHidden(prevValue => !prevValue)}
+								>
+									{!pinHidden ? <EyeSlashIcon /> : <EyeIcon />}
+								</TouchableOpacity>
+							</View>
+							<Text style={styles.helperText}>
+								Enter 6 numbers as new PIN to retain your card
+							</Text>
+						</View>
+						<View style={styles.inputWrapper}>
+							<View style={styles.inputContent}>
+								<TextInput
+									placeholder='Confirmation New PIN'
+									placeholderTextColor={colors.subtext}
+									style={styles.input}
+									onChangeText={setConfirmPin}
+									textAlignVertical='bottom'
+									keyboardType='numeric'
+									maxLength={4}
+									secureTextEntry={confirmPinHidden}
+								/>
+								<TouchableOpacity
+									style={styles.viewPinButton}
+									onPress={() => setConfirmPinHidden(prevValue => !prevValue)}
+								>
+									{!confirmPinHidden ? <EyeSlashIcon /> : <EyeIcon />}
+								</TouchableOpacity>
+							</View>
+						</View>
+					</View>
+					<View style={styles.customButtonWrapper}>
+						<TouchableOpacity
+							style={[
+								styles.customButton,
+								[pin, confirmPin].includes('') || (pin != confirmPin) && styles.customButtonDisabled
+							]}
+							onPress={() => {}}
+						>
+							<Text style={styles.customButtonText}>Save</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+			</ScrollView>
+		</TouchableWithoutFeedback>
     )
 }
 
@@ -188,7 +193,7 @@ const styles = StyleSheet.create({
 		zIndex: 2,
 	},
 	cardHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 20,
 		lineHeight: 30,
@@ -234,7 +239,7 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 	},
 	balanceHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -242,14 +247,14 @@ const styles = StyleSheet.create({
 		opacity: 0.54,
 	},
 	balance: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 24,
 		lineHeight: 42,
 		color: colors.background,
 	},
 	cardNumber: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -314,7 +319,7 @@ const styles = StyleSheet.create({
 		zIndex: 3,
 	},
 	expireDate: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -359,7 +364,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 8,
 	},
 	input: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 14,
         lineHeight: 21,
         color: colors.black,
@@ -373,7 +378,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	helperText: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 10,
 		lineHeight: 15,
 		color: colors.black,
@@ -395,8 +400,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.primaryAlt
     },
+	customButtonDisabled: {
+		backgroundColor: colors.primaryDisabled,
+	},
 	customButtonText: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 16,
 		lineHeight: 24,

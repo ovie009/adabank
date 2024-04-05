@@ -1,3 +1,4 @@
+import * as DevClient from 'expo-dev-client'; // expo dev client
 import 'react-native-gesture-handler'; //required import for bottomsheet to function
 // react hooks
 import { useCallback, useEffect, useState } from 'react';
@@ -6,7 +7,8 @@ import { useFonts } from 'expo-font';
 // import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+// safe area provider
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { StatusBar } from 'expo-status-bar';
 // bottom sheet components
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -28,9 +30,11 @@ import BottomNavigation from './components/BottomNavigation';
 import Taskbar from './components/Taskbar';
 // conetxt
 import AppProvider from './context/AppContext';
+// import { enableFreeze } from 'react-native-screens';
 
+// enableFreeze(true);
 // Keep the splash screen visible while we fetch resources
-// SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
@@ -83,14 +87,49 @@ export default function App() {
         // wait fpr font and authData to finish loading
         if (fontsLoaded) {
             // remove splash screen
-            // await SplashScreen.hideAsync();
+            await SplashScreen.hideAsync();
         }
     }, [fontsLoaded]);
 
 	const Stack = createNativeStackNavigator();
 
-	// return fontsLoaded ? (
-	// 	<SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
+	return fontsLoaded ? (
+		<SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
+			<SafeAreaProvider>
+				<NavigationContainer>
+					<AppProvider>
+						{/* GestureHandlerRootView required to render bottomsheet */}
+						<GestureHandlerRootView style={{ flex: 1 }}>
+							{/* BottomSheetModalProvider required to render bottomsheet */}
+							<BottomSheetModalProvider>
+								<Taskbar />
+								<Stack.Navigator
+									initialRouteName='Home'
+									screenOptions={{
+										headerShown: false
+									}}
+								>
+									<Stack.Screen name="Home" component={Home} />
+									<Stack.Screen name="Graph" component={Graph} />
+									<Stack.Screen name="Scan" component={Scan} />
+									<Stack.Screen name="Card" component={Card} />
+									<Stack.Screen name="ChangePin" component={ChangePin} />
+									<Stack.Screen name="Notifications" component={Notifications} />
+									<Stack.Screen name="Menu" component={Menu} />
+									<Stack.Screen name="TopUp" component={TopUp} />
+									<Stack.Screen name="Transfer" component={Transfer} />
+								</Stack.Navigator>
+								<BottomNavigation />
+							</BottomSheetModalProvider>
+						</GestureHandlerRootView>
+					</AppProvider>
+				</NavigationContainer>
+			</SafeAreaProvider>
+		</SafeAreaView>
+	): <></>;
+
+	// return (
+	// 	<SafeAreaView style={{flex: 1}}>
 	// 		<NavigationContainer>
 	// 			<AppProvider>
 	// 				{/* GestureHandlerRootView required to render bottomsheet */}
@@ -120,40 +159,33 @@ export default function App() {
 	// 			</AppProvider>
 	// 		</NavigationContainer>
 	// 	</SafeAreaView>
-	// ): <></>;
+	// );
 
-	return (
-		<SafeAreaView style={{flex: 1}}>
-			<NavigationContainer>
-				<AppProvider>
-					{/* GestureHandlerRootView required to render bottomsheet */}
-					<GestureHandlerRootView style={{ flex: 1 }}>
-						{/* BottomSheetModalProvider required to render bottomsheet */}
-						<BottomSheetModalProvider>
-							<Taskbar />
-							<Stack.Navigator
-								initialRouteName='Home'
-								screenOptions={{
-									headerShown: false
-								}}
-							>
-								<Stack.Screen name="Home" component={Home} />
-								<Stack.Screen name="Graph" component={Graph} />
-								<Stack.Screen name="Scan" component={Scan} />
-								<Stack.Screen name="Card" component={Card} />
-								<Stack.Screen name="ChangePin" component={ChangePin} />
-								<Stack.Screen name="Notifications" component={Notifications} />
-								<Stack.Screen name="Menu" component={Menu} />
-								<Stack.Screen name="TopUp" component={TopUp} />
-								<Stack.Screen name="Transfer" component={Transfer} />
-							</Stack.Navigator>
-							<BottomNavigation />
-						</BottomSheetModalProvider>
-					</GestureHandlerRootView>
-				</AppProvider>
-			</NavigationContainer>
-		</SafeAreaView>
-	);
+	// "dependencies": {
+	// 	"@gorhom/bottom-sheet": "^4.6.1",
+	// 	"@react-native-community/blur": "^4.4.0",
+	// 	"@react-navigation/native": "^6.1.17",
+	// 	"@react-navigation/native-stack": "^6.9.26",
+	// 	"expo": "^50.0.14",
+	// 	"expo-blur": "^12.9.2",
+	// 	"expo-camera": "^14.1.1",
+	// 	"expo-dev-client": "^3.3.11",
+	// 	"expo-font": "^11.10.3",
+	// 	"expo-image": "^1.10.6",
+	// 	"expo-linear-gradient": "^12.7.2",
+	// 	"expo-splash-screen": "^0.26.4",
+	// 	"expo-status-bar": "^1.11.1",
+	// 	"metro": "^0.80.8",
+	// 	"metro-config": "^0.80.8",
+	// 	"metro-resolver": "^0.80.8",
+	// 	"react": "18.2.0",
+	// 	"react-native": "^0.73.6",
+	// 	"react-native-chart-kit": "^6.12.0",
+	// 	"react-native-gesture-handler": "^2.14.0",
+	// 	"react-native-reanimated": "^3.6.2",
+	// 	"react-native-shadow-2": "^7.0.8",
+	// 	"react-native-svg": "^14.1.0"
+	//   },
 }
 
 AppRegistry.registerComponent('MyApp', () => App);

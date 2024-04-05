@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         color: colors.white,
         fontSize: 14,
         lineHeight: 21,
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         textTransform: 'capitalize',
     },
 })

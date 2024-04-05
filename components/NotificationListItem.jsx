@@ -70,14 +70,14 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	transactionDescription: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.blackOut,
         width: '100%',
 	},
 	transactionDate: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
 		fontSize: 10,
 		lineHeight: 15,
 		color: colors.subtext,

@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 		marginBottom: 28,
 	},
 	headerText: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 16,
 		lineHeight: 24,
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
 		gap: 12,
 	},
 	transactionHistoryHeading: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
 		opacity: 0.5,
 	},
 	percentageProgress: {
-		// fontFamily: 'poppins-medium',
+		fontFamily: 'poppins-medium',
 		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	transactionDescription: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 12,
 		lineHeight: 18,
 		color: colors.blackOut,
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
 		height: 36,
 	},
 	transactionDate: {
-		// fontFamily: 'poppins-regular',
+		fontFamily: 'poppins-regular',
 		fontSize: 10,
 		lineHeight: 15,
 		color: colors.subtext,

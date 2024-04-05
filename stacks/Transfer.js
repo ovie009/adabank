@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
     },
     navigationText: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 12,
         lineHeight: 18,
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     serachBarInput: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.black,
         flex: 1,
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontSize: 14,
         lineHeight: 21,
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         paddingHorizontal: 24,
         opacity: 0.5,
@@ -307,15 +307,15 @@ const styles = StyleSheet.create({
     accountName: {
         color: colors.black,
         fontSize: 16,
-        lineHeight: 16,
-        // fontFamily: 'poppins-medium',
+        height: 16,
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
     },
     accountNumber: {
         color: colors.black,
         fontSize: 10,
         lineHeight: 12,
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         opacity: 0.5,
     },
     allContactsContainer: {
@@ -356,21 +356,21 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontSize: 16,
         lineHeight: 16,
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
     },
     contactAccountNumber: {
         color: colors.black,
         fontSize: 12,
         lineHeight: 12,
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         opacity: 0.5,
     },
     allContactsHeading: {
         color: colors.black,
         fontSize: 14,
         lineHeight: 21,
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         opacity: 0.5,
         marginVertical: 32,
@@ -412,6 +412,6 @@ const styles = StyleSheet.create({
         opacity: 0.5,
         fontSize: 14,
         lineHeight: 21,
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
     }
 })

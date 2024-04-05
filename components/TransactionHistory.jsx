@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     transactionType: {
-        // fontFamily: 'poppins-medium',
+        fontFamily: 'poppins-medium',
         fontWeight: '500',
         fontSize: 12,
         lineHeight: 18,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
     },
     transactionDate: {
-        // fontFamily: 'poppins-regular',
+        fontFamily: 'poppins-regular',
         fontSize: 10,
         lineHeight: 15,
         color: colors.black,
