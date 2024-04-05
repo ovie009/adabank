@@ -30,7 +30,7 @@ import Taskbar from './components/Taskbar';
 import AppProvider from './context/AppContext';
 
 // Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
@@ -83,46 +83,13 @@ export default function App() {
         // wait fpr font and authData to finish loading
         if (fontsLoaded) {
             // remove splash screen
-            await SplashScreen.hideAsync();
+            // await SplashScreen.hideAsync();
         }
     }, [fontsLoaded]);
 
 	const Stack = createNativeStackNavigator();
 
-	return fontsLoaded ? (
-		<SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
-			<NavigationContainer>
-				<AppProvider>
-					{/* GestureHandlerRootView required to render bottomsheet */}
-					<GestureHandlerRootView style={{ flex: 1 }}>
-						{/* BottomSheetModalProvider required to render bottomsheet */}
-						<BottomSheetModalProvider>
-							<Taskbar />
-							<Stack.Navigator
-								initialRouteName='Home'
-								screenOptions={{
-									headerShown: false
-								}}
-							>
-								<Stack.Screen name="Home" component={Home} />
-								<Stack.Screen name="Graph" component={Graph} />
-								<Stack.Screen name="Scan" component={Scan} />
-								<Stack.Screen name="Card" component={Card} />
-								<Stack.Screen name="ChangePin" component={ChangePin} />
-								<Stack.Screen name="Notifications" component={Notifications} />
-								<Stack.Screen name="Menu" component={Menu} />
-								<Stack.Screen name="TopUp" component={TopUp} />
-								<Stack.Screen name="Transfer" component={Transfer} />
-							</Stack.Navigator>
-							<BottomNavigation />
-						</BottomSheetModalProvider>
-					</GestureHandlerRootView>
-				</AppProvider>
-			</NavigationContainer>
-		</SafeAreaView>
-	): <></>;
-
-	// return (
+	// return fontsLoaded ? (
 	// 	<SafeAreaView style={{flex: 1}} onLayout={onLayoutRootView}>
 	// 		<NavigationContainer>
 	// 			<AppProvider>
@@ -153,7 +120,40 @@ export default function App() {
 	// 			</AppProvider>
 	// 		</NavigationContainer>
 	// 	</SafeAreaView>
-	// );
+	// ): <></>;
+
+	return (
+		<SafeAreaView style={{flex: 1}}>
+			<NavigationContainer>
+				<AppProvider>
+					{/* GestureHandlerRootView required to render bottomsheet */}
+					<GestureHandlerRootView style={{ flex: 1 }}>
+						{/* BottomSheetModalProvider required to render bottomsheet */}
+						<BottomSheetModalProvider>
+							<Taskbar />
+							<Stack.Navigator
+								initialRouteName='Home'
+								screenOptions={{
+									headerShown: false
+								}}
+							>
+								<Stack.Screen name="Home" component={Home} />
+								<Stack.Screen name="Graph" component={Graph} />
+								<Stack.Screen name="Scan" component={Scan} />
+								<Stack.Screen name="Card" component={Card} />
+								<Stack.Screen name="ChangePin" component={ChangePin} />
+								<Stack.Screen name="Notifications" component={Notifications} />
+								<Stack.Screen name="Menu" component={Menu} />
+								<Stack.Screen name="TopUp" component={TopUp} />
+								<Stack.Screen name="Transfer" component={Transfer} />
+							</Stack.Navigator>
+							<BottomNavigation />
+						</BottomSheetModalProvider>
+					</GestureHandlerRootView>
+				</AppProvider>
+			</NavigationContainer>
+		</SafeAreaView>
+	);
 }
 
 AppRegistry.registerComponent('MyApp', () => App);

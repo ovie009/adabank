@@ -298,12 +298,13 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',  
     },
     headerLightText: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 14,
         color: colors.white,
     },
     headerBoldText: {
-        fontFamily: 'poppins-medium',
+        // fontFamily: 'poppins-medium',
+        fontWeight: '500',
         fontSize: 24,
         color: colors.white,
     },
@@ -383,7 +384,7 @@ const styles = StyleSheet.create({
         height: 116,
     },
     balanceDescription: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.white,
         lineHeight: 18,
@@ -402,7 +403,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     balanceText: {
-        fontFamily: 'poppins-semibold',
+        // fontFamily: 'poppins-semibold',
+        fontWeight: '600',
         fontSize: 44,
         lineHeight: 66,
         color: colors.white,
@@ -420,7 +422,8 @@ const styles = StyleSheet.create({
     },
     currencyButtonText: {
         color: colors.white,
-        fontFamily: 'poppins-medium',
+        // fontFamily: 'poppins-medium',
+        fontWeight: '500',
         fontSize: 10,
     },
     quickLinksWrapper: {
@@ -446,7 +449,7 @@ const styles = StyleSheet.create({
 
 
     quickButtonDescription: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.white,
         lineHeight: 18,
@@ -473,7 +476,8 @@ const styles = StyleSheet.create({
         paddingRight: 24,
     },
     beneficiariesHeader: {
-        fontFamily: 'poppins-medium',
+        // fontFamily: 'poppins-medium',
+        fontWeight: '500',
         fontSize: 14,
         color: colors.black,
         lineHeight: 21,
@@ -500,7 +504,7 @@ const styles = StyleSheet.create({
         width: 56,
     },
     beneficiaryName: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.black,
         lineHeight: 18,
@@ -554,13 +558,14 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     transactionType: {
-        fontFamily: 'poppins-medium',
+        // fontFamily: 'poppins-medium',
+        fontWeight: '500',
         fontSize: 12,
         lineHeight: 18,
         color: colors.black,
     },
     transactionDate: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 10,
         lineHeight: 15,
         color: colors.black,

@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     serachBarInput: {
-        fontFamily: 'poppins-regular',
+        // fontFamily: 'poppins-regular',
         fontSize: 12,
         color: colors.black,
         flex: 1,
@@ -214,7 +214,8 @@ const styles = StyleSheet.create({
         color: colors.white,
         fontSize: 14,
         lineHeight: 21,
-        fontFamily: 'poppins-medium',
+        // fontFamily: 'poppins-medium',
+        fontWeight: '500',
     },
     buttonList: {
         width: '100%',

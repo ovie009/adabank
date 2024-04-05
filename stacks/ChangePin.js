@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput } from 'react-native'
 import React, { useState } from 'react';
 import { colors } from '../style/colors';
 import { windowHeight, windowWidth } from '../utils/dimension';
@@ -7,18 +7,27 @@ import CardStripes from '../assets/svg/CardStripes';
 import MasterCardLogo from '../assets/svg/MasterCardLogo';
 import BottomEllipse from '../assets/svg/BottomEllipse';
 import TopEllipse from '../assets/svg/TopEllipse';
-import TopUpIcon from '../assets/svg/TopUpIcon';
-import LockIcon from '../assets/svg/LockIcon';
-import PinIcon from '../assets/svg/PinIcon';
+import EyeIcon from '../assets/svg/EyeIcon';
+import EyeSlashIcon from '../assets/svg/EyeSlashIcon';
 // gradient
 import { LinearGradient } from 'expo-linear-gradient';
 // shadow component
 import { Shadow } from 'react-native-shadow-2';
 // components
-import IconButton from '../components/IconButton';
-import ToggleSwitch from '../components/ToggleSwitch';
 
 const ChangePin = () => {
+
+	// search query
+	const [pin, setPin] = useState('');
+	
+	// search query
+	const [confirmPin, setConfirmPin] = useState('');
+
+	// pin hiddem
+	const [pinHidden, setPinHidden] = useState(true);
+
+	// confirm pin hidden
+	const [confirmPinHidden, setConfirmPinHidden] = useState(true);
 
 	// limit switch value
 	const [limit, setLimit] = useState(true);
@@ -83,7 +92,47 @@ const ChangePin = () => {
 			<View style={styles.main}>
 				<View style={styles.InputGroup}>
 					<View style={styles.inputWrapper}>
-						
+						<View style={styles.inputContent}>
+							<TextInput
+								placeholder='New PIN'
+								placeholderTextColor={colors.subtext}
+								style={styles.input}
+								onChangeText={setPin}
+								textAlignVertical='bottom'
+								keyboardType='numeric'
+								maxLength={4}
+								secureTextEntry={pinHidden}
+							/>
+							<TouchableOpacity
+								style={styles.viewPinButton}
+								onPress={() => setPinHidden(prevValue => !prevValue)}
+							>
+								{!pinHidden ? <EyeSlashIcon /> : <EyeIcon />}
+							</TouchableOpacity>
+						</View>
+						<Text style={styles.helperText}>
+							Enter 6 numbers as new PIN to retain your card
+						</Text>
+					</View>
+					<View style={styles.inputWrapper}>
+						<View style={styles.inputContent}>
+							<TextInput
+								placeholder='Confirmation New PIN'
+								placeholderTextColor={colors.subtext}
+								style={styles.input}
+								onChangeText={setConfirmPin}
+								textAlignVertical='bottom'
+								keyboardType='numeric'
+								maxLength={4}
+								secureTextEntry={confirmPinHidden}
+							/>
+							<TouchableOpacity
+								style={styles.viewPinButton}
+								onPress={() => setConfirmPinHidden(prevValue => !prevValue)}
+							>
+								{!confirmPinHidden ? <EyeSlashIcon /> : <EyeIcon />}
+							</TouchableOpacity>
+						</View>
 					</View>
 				</View>
                 <View style={styles.customButtonWrapper}>
@@ -139,7 +188,8 @@ const styles = StyleSheet.create({
 		zIndex: 2,
 	},
 	cardHeading: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 20,
 		lineHeight: 30,
 		color: colors.white
@@ -184,20 +234,23 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 	},
 	balanceHeading: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
 		color: colors.white,
 		opacity: 0.54,
 	},
 	balance: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 24,
 		lineHeight: 42,
 		color: colors.background,
 	},
 	cardNumber: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
 		color: colors.background,
@@ -261,7 +314,8 @@ const styles = StyleSheet.create({
 		zIndex: 3,
 	},
 	expireDate: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 14,
 		lineHeight: 21,
 		color: colors.black
@@ -281,6 +335,49 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 24,
 	},
 	InputGroup: {
+		display: 'flex',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		width: '100%',
+		gap: 46,
+	},
+	inputWrapper: {
+		display: 'flex',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		width: '100%',
+		gap: 12,
+	},
+	inputContent: {
+		display: 'flex',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		width: '100%',
+		flexDirection: 'row',
+		borderBottomWidth: 0.5,
+		borderColor: colors.listSeperator,
+		paddingBottom: 8,
+	},
+	input: {
+        // fontFamily: 'poppins-regular',
+        fontSize: 14,
+        lineHeight: 21,
+        color: colors.black,
+        flex: 1,
+    },
+	viewPinButton: {
+		width: 24,
+		height: 24,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	helperText: {
+		// fontFamily: 'poppins-regular',
+		fontSize: 10,
+		lineHeight: 15,
+		color: colors.black,
+		opacity: 0.3,
 	},
     customButtonWrapper: {
         width: '100%',
@@ -299,7 +396,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primaryAlt
     },
 	customButtonText: {
-		fontFamily: 'poppins-medium',
+		// fontFamily: 'poppins-medium',
+		fontWeight: '500',
 		fontSize: 16,
 		lineHeight: 24,
 		color: colors.white,
