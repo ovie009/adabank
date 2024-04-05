@@ -18,7 +18,7 @@ import { Shadow } from 'react-native-shadow-2';
 import IconButton from '../components/IconButton';
 import ToggleSwitch from '../components/ToggleSwitch';
 
-const Card = ({navigation}) => {
+const ChangePin = () => {
 
 	// limit switch value
 	const [limit, setLimit] = useState(true);
@@ -41,7 +41,7 @@ const Card = ({navigation}) => {
 			/>
 			{/* <View style={styles.circularDesign} /> */}
 			<View style={styles.cardWrapper}>
-				<Text style={styles.cardHeading}>My Card</Text>
+				<Text style={styles.cardHeading}>Chnage PIN</Text>
 				<View style={styles.cardContainer}>
 					<Shadow 
 						style={styles.cardShadow}
@@ -81,110 +81,39 @@ const Card = ({navigation}) => {
 				</View>
 			</View>
 			<View style={styles.main}>
-				<View style={styles.navigationButtonsWrapper}>
-					<Shadow 
-						style={styles.navButtonShadow}
-						distance={30}
-						offset={[0, 7]}
-						startColor='#05051A14'
-					>
-						<TouchableOpacity
-							style={styles.navButtonShadow}
-						>
-							<IconButton
-								icon={<LockIcon />}
-							/>
-							<Text style={styles.navButtonText}>
-								Lock Card
-							</Text>
-						</TouchableOpacity>
-					</Shadow>
-					<Shadow 
-						style={styles.navButtonShadow}
-						distance={30}
-						offset={[0, 7]}
-						startColor='#05051A14'
-						>
-						<TouchableOpacity
-							style={styles.navButtonShadow}
-							onPress={() => navigation.navigate("ChangePin")}
-							>
-							<IconButton
-								icon={<PinIcon />}
-								onPress={() => navigation.navigate("ChangePin")}
-							/>
-							<Text style={styles.navButtonText}>
-								Change PIN
-							</Text>
-						</TouchableOpacity>
-					</Shadow>
-					<Shadow 
-						style={styles.navButtonShadow}
-						distance={30}
-						offset={[0, 7]}
-						startColor='#05051A14'
-					>
-						<TouchableOpacity>
-						</TouchableOpacity>
-						<IconButton
-							icon={<TopUpIcon />}
-						/>
-						<Text style={styles.navButtonText}>
-							Top Up
-						</Text>
-					</Shadow>
-				</View>
-				<View style={styles.settingsGroup}>
-					<Text style={styles.setttingsHeading}>
-						Settings
-					</Text>
-					<View style={styles.settingsList}>
-						<View style={styles.settingsListItem}>
-							<View style={styles.settingsDescription}>
-								<Text style={styles.settingsHeading}>
-									Set Card Limit
-								</Text>
-								<Text style={styles.settingsSubText}>
-									You set budget for 3 categories
-								</Text>
-							</View>
-							<ToggleSwitch
-								value={limit}
-								onValueChange={handleToggle}
-							/>
-						</View>
-						<View style={styles.settingsListItem}>
-							<View style={styles.settingsDescription}>
-								<Text style={styles.settingsHeading}>
-									Set Card Limit
-								</Text>
-								<Text style={styles.settingsSubText}>
-									You set budget for 3 categories
-								</Text>
-							</View>
-							<Text style={styles.limit}>$100.00</Text>
-						</View>
+				<View style={styles.InputGroup}>
+					<View style={styles.inputWrapper}>
+						
 					</View>
 				</View>
+                <View style={styles.customButtonWrapper}>
+                    <TouchableOpacity
+                        style={styles.customButton}
+                        onPress={() => {}}
+                    >
+                        <Text style={styles.customButtonText}>Save</Text>
+                    </TouchableOpacity>
+                </View>
 			</View>
 		</ScrollView>
     )
 }
 
-export default Card
+export default ChangePin
 
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		minHeight: '100%',
-		height: '100%',
 		backgroundColor: colors.primary,
 	},
 	contentContainer: {
+		minHeight: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
+		paddingTop: 213,
+		// height: '100%',
 	},
 	circularDesign: {
 		width: 384,
@@ -338,93 +267,42 @@ const styles = StyleSheet.create({
 		color: colors.black
 	},
 	main: {
-		minHeight: windowHeight - 213,
-		marginTop: 213,
+		flexGrow: 1,
 		width: '100%',
 		backgroundColor: colors.background,
 		borderTopLeftRadius: 30,
 		borderTopRightRadius: 30,
-		paddingTop: 129,
-	},
-	navigationButtonsWrapper: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: '100%',
-		gap: 24,
-		flexWrap: 'wrap'
-	},
-	navButtonShadow: {
-		width: 94,
-		height: 94,
-		borderRadius: 20,
-		backgroundColor: colors.white,
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		gap: 8,
-	},
-	navButtonText: {
-		fontFamily: 'poppins-regular',
-		fontSize: 12,
-		lineHeight: 18,
-		color: colors.black
-	},
-	settingsGroup: {
-		marginTop: 44,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+		gap: 50,
+		paddingTop: 177,
+        paddingBottom: 16,
 		paddingHorizontal: 24,
 	},
-	setttingsHeading: {
+	InputGroup: {
+	},
+    customButtonWrapper: {
+        width: '100%',
+		height: 64,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    customButton: {
+        width: '100%',
+        height: 64,
+        borderRadius: 32,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primaryAlt
+    },
+	customButtonText: {
 		fontFamily: 'poppins-medium',
-		fontSize: 14,
-		lineHeight: 21,
-		color: colors.black,
-		opacity: 0.5,
-		marginBottom: 17,
-	},
-	settingsList: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start',
-		gap: 24,
-		width: '100%',
-	},
-	settingsListItem: {
-		width: '100%',
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'flex-start',
-		height: 60,
-		borderBottomWidth: 0.5,
-		borderColor: colors.listSeperator,
-	},
-	settingsDescription: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start',
-		gap: 4,
-	},
-	settingsHeading: {
-		fontFamily: 'poppins-medium',
-		fontSize: 12,
-		lineHeight: 18,
-		color: colors.black,
-	},
-	settingsSubText: {
-		fontFamily: 'poppins-regular',
-		fontSize: 10,
-		lineHeight: 15,
-		color: colors.black,
-		opacity: 0.5,
-	},
-	limit: {
-		fontFamily: 'poppins-medium',
-		fontSize: 14,
-		lineHeight: 21,
-		color: colors.black,
-	},
+		fontSize: 16,
+		lineHeight: 24,
+		color: colors.white,
+		textTransform: 'uppercase',
+	}
 })

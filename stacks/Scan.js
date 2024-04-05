@@ -84,10 +84,6 @@ const Scan = ({ navigation }) => {
         requestPermission();
     }, []);
 
-    // const handleCameraReady = () => {
-    //     setCameraReady(true);
-    // };
-
 	return (
 		<View style={styles.container}>
 			{hasPermission && (

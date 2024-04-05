@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Adabank",
-    "slug": "Adabank",
+    "name": "adabank",
+    "slug": "adabank",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icons/adabank_icon.png",
@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "63af49e4-32f1-4cbc-84ed-a575b41a4e52"
+        "projectId": "2d6b03df-a8f2-4ace-894e-e33758adc8d4"
       }
     }
   }
